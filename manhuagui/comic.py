@@ -8,13 +8,8 @@ import threading
 import requests
 import execjs
 
-# from manhuagui.settings import HEADERS, SERVERS
-# from manhuagui.utils import find_between, LZjs, format_filename
-
-# debug
-from settings import HEADERS, SERVERS
-from utils import find_between, LZjs, format_filename
-from downloader import dlfile
+from manhuagui.constant import HEADERS, SERVERS, DETAIL_URL
+from manhuagui.utils import find_between, LZjs, format_filename
 
 
 class ComicInfo(dict):
@@ -29,18 +24,24 @@ class ComicInfo(dict):
 
 
 class Comic(object):
-    def __init__(self, name=None, id=None, url=None, img_id=None, ext='', pages=0, **kwargs):
-        self.name = name
-        self.id = id
-        self.img_id = img_id
-        self.ext = ext
-        self.pages = pages
+    def __init__(self, bid=None, bname=None, bpic=None, cid=None, cname='', files=None, len=0, path='', nextId=0, sl=None, session=None, **kwargs):
+        self.bid = bid
+        self.bname = bname
+        self.bpic = bpic
+        self.cid = cid
+        self.cname = cname
+        self.files = files
+        self.len = len
+        self.path = path
+        self.nextId = nextId
+        self.sl = sl
+        self.session = session
         self.downloader = None
-        self.url = url
-        # self.url = '%s/%d' % (DETAIL_URL, self.id)
+        self.url = '%s/%d/%d.html' % (DETAIL_URL, self.bid, self.cid)
         self.info = ComicInfo(**kwargs)
-        self.filename = format_filename(
-            '[%s][%s][%s]' % (self.id, self.info.artist, self.name))
+        # self.info.artist 作者名要在漫画首页拿
+        # self.foldername = format_filename('[%s][%s]' % (self.bname, self.cname))
+        self.foldername = '[%s][%s]' % (self.bname, self.cname)
 
 
 def get_pic(url):

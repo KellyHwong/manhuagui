@@ -12,7 +12,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='manhuagui',
-    version=manhuagui.__version__,
+    version=__version__,
     description='manhuagui.com comics downloader',
     keywords=['manhuagui', 'comics'],
     author='KellyHwong',
@@ -36,5 +36,10 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Software Development :: Libraries :: Python Modules'
-    ]
+    ],
+    entry_points={
+        'console_scripts': [
+            'manhuagui = manhuagui.command:main',
+        ]
+    },
 )
