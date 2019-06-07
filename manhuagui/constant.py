@@ -4,7 +4,7 @@ import os
 from manhuagui.utils import urlparse
 
 # BASE_URL = os.getenv('MANHUAGUI', 'https://www.manhuagui.com')
-BASE_URL = os.getenv('MANHUAGUI', 'http://www.manhuagui.com')
+BASE_URL = os.getenv('MANHUAGUI', 'https://www.manhuagui.com')
 DETAIL_URL = '%s/comic' % BASE_URL
 
 HEADERS = {

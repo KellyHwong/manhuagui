@@ -3,3 +3,5 @@ BeautifulSoup4>=4.0.0
 threadpool>=1.2.7
 tabulate>=0.7.5
 future>=0.15.2
+lxml>=4.2.0
+PyExecJS>=1.4.0

@@ -44,8 +44,7 @@ def banner():
  *                                                  
  *                                                  
  */
- 你要成为欧尼酱嘛？
-''' % __version__)
+ 你要成为欧尼酱嘛？''' % __version__)
 
 
 def cmd_parser():
