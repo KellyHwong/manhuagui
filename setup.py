@@ -10,13 +10,20 @@ with open('requirements.txt') as f:
     requirements = [l for l in f.read().splitlines() if l]
 
 
+def long_description():
+    with codecs.open('README.rst', 'rb') as readme:
+        if not sys.version_info < (3, 0, 0):
+            return readme.read().decode('utf-8')
+
+
 setup(
     name='manhuagui',
     version=__version__,
-    description='manhuagui.com comics downloader',
-    keywords=['manhuagui', 'comics'],
     author='KellyHwong',
     author_email='dianhuangkan@gmail.com',
+    description='manhuagui.com comics downloader',
+    long_description=long_description(),
+    keywords=['manhuagui', 'comics'],
     maintainer='KellyHwong',
     maintainer_email='dianhuangkan@gmail.com',
     license='MIT',
@@ -28,7 +35,7 @@ setup(
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache License',
+        "License :: OSI Approved :: MIT License",
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
