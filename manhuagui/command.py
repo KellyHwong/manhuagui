@@ -30,7 +30,6 @@ def main():
         comic_ids = options.id
     if not comic_vols:
         comic_vols = options.vol
-        print(comic_vols)
     if comic_vols is None:
         comic_vols = []
 

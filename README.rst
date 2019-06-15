@@ -31,6 +31,7 @@ TODO：目前只实现了下载第 i 话
     manhuagui --id=23552 --vol=1,2,3,4 # 下载（1,2,3,4）前 4 话
 
 注意：不要作死下载过多话，虽然提供下载所有话的命令，但这样容易被封 ip
+
 .. code-block:: python
 
     manhuagui --id=23552 --vol=all # 下载所有话
