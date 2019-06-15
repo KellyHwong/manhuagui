@@ -23,34 +23,42 @@ def main():
     options = cmd_parser()
 
     comic_ids = []
+    comic_vols = []
     comic_list = []
 
     if not comic_ids:
         comic_ids = options.id
+    if not comic_vols:
+        comic_vols = options.vol
+        print(comic_vols)
+    if comic_vols is None:
+        comic_vols = []
 
     if comic_ids:
         for id_ in comic_ids:
             comic_index = comic_index_parser(id_)
-            # if not options.vol
-            # test
-            # for number in range(len(comic_index.keys())):
-            # 试探性爬 4 本
-            for number in range(1):
-                if number+1 not in comic_index.keys():
-                    break
-                id_vol_ = comic_index[number+1]
-                comic_info = comic_parser(
-                    id_=id_vol_["id"], vol_=id_vol_["vol"])
-                comic = Comic(**comic_info)
-                comic_list.append(comic)
+            if "all" in comic_vols:
+                for number in range(len(comic_index.keys())):
+                    if number+1 not in comic_index.keys():
+                        break
+                    id_vol_ = comic_index[number+1]
+                    comic_info = comic_parser(
+                        id_=id_vol_["id"], vol_=id_vol_["vol"])
+                    comic = Comic(**comic_info)
+                    comic_list.append(comic)
+            else:
+                if not comic_vols:
+                    vol = 1  # default vol
+                    comic_vols.append(vol)
+                for vol in comic_vols:
+                    if int(vol) in comic_index.keys():
+                        id_vol_ = comic_index[int(vol)]
+                        comic_info = comic_parser(
+                            id_=id_vol_["id"], vol_=id_vol_["vol"])
+                        comic = Comic(**comic_info)
+                        comic_list.append(comic)
 
-    # print(comic_list)
-    # print(comic_list[0].url)
-    # return
-
-    # downloader = Downloader(path=options.output_dir,
-            # thread=options.threads, timeout=options.timeout)
-    downloader = Downloader(thread=4)
+    downloader = Downloader(thread=options.threads, timeout=options.timeout)
     for comic in comic_list:
         logger.info('Starting to download doujinshi: %s %s' %
                     (comic.bname, comic.cname))

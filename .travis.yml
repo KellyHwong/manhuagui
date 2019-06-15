@@ -1,0 +1,17 @@
+os:
+  - linux
+
+dist: xenial # required for Python >= 3.7
+language: python
+python:
+  - 3.6
+  - 3.7
+
+install:
+  - python setup.py install
+
+script:
+  - MANHUAGUI=https://www.manhuagui.com manhuagui --id=23552
+  - MANHUAGUI=https://www.manhuagui.com manhuagui --id=23552 --vol=1
+  - MANHUAGUI=https://www.manhuagui.com manhuagui --id=23552 --vol=6
+  - MANHUAGUI=https://www.manhuagui.com manhuagui --id=23552 --vol=1,2,3,4
