@@ -48,8 +48,11 @@ Thanks to [RicterZ@Github](https://github.com/RicterZ)'s code in [nhentai](https
 
 And thanks to this repository [manhuagui-dl](https://github.com/ysc3839/manhuagui-dl)
 
-.. |travis| image:: https://travis-ci.org/KellyHwong/manhuagui.svg?branch=master :target: https://travis-ci.org/KellyHwong/manhuagui
+.. |travis| image:: https://travis-ci.org/KellyHwong/manhuagui.svg?branch=master
+    :target: https://travis-ci.org/KellyHwong/manhuagui
 
-.. |pypi| image:: https://img.shields.io/pypi/dm/manhuagui.svg :target: https://pypi.org/project/manhuagui/
+.. |pypi| image:: https://img.shields.io/pypi/dm/manhuagui.svg
+    :target: https://pypi.org/project/manhuagui/
 
-.. |license| image:: https://img.shields.io/github/license/kellyhwong/manhuagui.svg :target: https://github.com/KellyHwong/manhuagui/blob/master/LICENSE
+.. |license| image:: https://img.shields.io/github/license/kellyhwong/manhuagui.svg
+    :target: https://github.com/KellyHwong/manhuagui/blob/master/LICENSE
