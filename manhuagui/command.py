@@ -47,8 +47,9 @@ def main():
                     comic_list.append(comic)
             else:
                 if not comic_vols:
-                    vol = 1  # default vol
+                    vol = {1}  # default vol
                     comic_vols.append(vol)
+                logger.info("下载卷：%s" % comic_vols)
                 for vol in comic_vols:
                     if int(vol) in comic_index.keys():
                         id_vol_ = comic_index[int(vol)]

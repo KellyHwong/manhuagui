@@ -7,16 +7,29 @@ manhuagui 漫画下载
 |pypi|
 |license|
 
+============
+Installation
+============
+Install from PyPI
+.. code-block:: bash
+
+    pip3 install manhuagui
+
+Install with this repo with Git
+.. code-block:: bash
+
+    git clone https://github.com/KellyHwong/manhuagui
+
+    cd manhuagui
+
+    python3 setup.py install
+
 =====
 Usage
 =====
-TODO：目前只实现了下载第 i 话
-
 下载 别当欧尼酱了 第一话 https://www.manhuagui.com/comic/23552
 
-.. code-block:: python
-
-    manhuagui --id=23552 [--vol=1] # 默认只下载第一话
+Download 别当欧尼酱了 1st vol
 
 .. code-block:: python
 
@@ -30,11 +43,21 @@ TODO：目前只实现了下载第 i 话
 
     manhuagui --id=23552 --vol=1,2,3,4 # 下载（1,2,3,4）前 4 话
 
+
 注意：不要作死下载过多话，虽然提供下载所有话的命令，但这样容易被封 ip
 
 .. code-block:: python
 
+    # Not recommendded!
+
     manhuagui --id=23552 --vol=all # 下载所有话
+
+为了保护你宝贵的IP，不输入--vol默认等同于[--vol=1]，即只下载第一话
+
+For the concern of your IP, no --vol input is equivalent with [--vol-1], i.e., only download the 1st vol.
+.. code-block:: python
+
+    manhuagui --id=23552 [--vol=1] # 默认只下载第一话
 
 ====
 webp
